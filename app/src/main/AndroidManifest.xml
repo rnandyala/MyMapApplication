@@ -9,10 +9,23 @@
     -->
 
 
-    <!-- As map is not shown I am trying add this permission -->
+    <!--
+    This is a new permission that  added as suggested by the
+    https://github.com/codepath/android_guides/wiki/Retrieving-Location-with-LocationServices-API
 
+    This is not present in the vivan video
+
+    Marshmallow permission are runtime permission!
+    The permissions model has changed starting in Marshmallow.
+    If your targetSdkVersion >= 23 and you are running on a Marshmallow (or later) device,
+    you may need to enable runtime permissions.
+    You can also read more about the runtime permissions changes here.
+
+
+    -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- As map is not shown I am trying add this permission -->
 
 
 
@@ -39,15 +52,26 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.example.rajap.mymapapplication.permission.MAP_RECEIVE" />
-    <!--  add google services permission This allows me to use google services -->
+    <!--  add google services permission This allows me to use google services
+     such as maps, locations
+     -->
     <uses-permission android:name="com.google.android.provider.gsf.permissions.READ_GSERVICES" />
 <!-- open glEsVersion what is it for-->
     <uses-feature
         android:glEsVersion="0x0020000"
         android:required="true" />
 
-    <!-- what is the purpose of android:name? (it is like registering the where my MainActivity is )-->
+    <!-- what is the purpose of android:name? (it is used to register the MainActivity)-->
+<!-- >
+It is better to know the hierarchy tree now to understand more about the differences between:
+a. Context
+b. Activity
+c. Application
+Context is the ultimate parent of the activity
+Activity is tied up just to the activity lifecyle where as
+Application is tied up to the entire lifecycle of an application (think this is from opening an app to closing an application)
 
+<-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
